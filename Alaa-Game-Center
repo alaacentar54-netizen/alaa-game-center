@@ -1,0 +1,299 @@
+[8/6/2026 12:35 PM] Alaa Abdallah: <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز علاء للأجهزة والألعاب</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+    <img src="logo.png" class="logo">
+
+    <h1>مركز علاء للأجهزة والألعاب</h1>
+
+    <h3>ديالى - بعقوبة الجديدة</h3>
+
+    <div class="version">
+        PS4 Jailbreak 11.00
+    </div> id="clock"></div>
+
+</header>
+
+<div class="search">
+
+<input type="text" placeholder="ابحث...">
+
+</div>
+
+<div class="buttons">
+
+<button class="gold">GoldHEN</button>
+
+<button class="blue">Bin Loader</button>
+
+<button class="green">FTP</button>
+
+<button class="purple">Linux</button>
+
+<button class="orange">Tools</button>
+
+<button class="red">Restart</button>
+
+</div>
+
+<div class="status">
+
+الحالة :
+<span>Ready...</span>
+
+</div>
+
+<footer>
+
+<p>© مركز علاء للأجهزة والألعاب</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+[8/6/2026 12:46 PM] Alaa Abdallah: *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,sans-serif;
+}
+
+body{
+
+background:#06152f;
+background-image:linear-gradient(180deg,#071e45,#020b18);
+color:white;
+min-height:100vh;
+
+}
+
+header{
+
+text-align:center;
+padding:40px 20px;
+
+}
+
+.logo{
+
+width:180px;
+margin-bottom:20px;
+filter:drop-shadow(0 0 20px #00bfff);
+
+}
+
+h1{
+
+font-size:42px;
+color:#FFD700;
+text-shadow:0 0 20px #ffcf33;
+
+}
+
+h3{
+
+margin-top:10px;
+color:#8fc8ff;
+font-size:24px;
+
+}
+
+.version{
+
+margin-top:25px;
+display:inline-block;
+padding:12px 35px;
+border-radius:40px;
+background:#005dff;
+font-size:22px;
+box-shadow:0 0 25px #008cff;
+
+}
+
+.search{
+
+width:90%;
+max-width:900px;
+margin:40px auto;
+
+}
+
+.search input{
+
+width:100%;
+padding:18px;
+font-size:20px;
+background:#0d244d;
+border:2px solid #00aaff;
+color:white;
+border-radius:15px;
+
+}
+
+.buttons{
+
+width:95%;
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+
+}
+
+button{
+
+height:150px;
+border:none;
+border-radius:20px;
+font-size:26px;
+font-weight:bold;
+cursor:pointer;
+transition:.35s;
+color:white;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+.gold{
+
+background:#c99600;
+
+}
+
+.blue{
+
+background:#0066ff;
+
+}
+
+.green{
+
+background:#009966;
+
+}
+
+.purple{
+
+background:#7a2cff;
+
+}
+
+.orange{
+
+background:#ff7300;
+
+}
+
+.red{
+
+background:#dd2020;
+
+}
+
+.status{
+
+width:90%;
+max-width:800px;
+margin:50px auto;
+padding:20px;
+font-size:26px;
+text-align:center;
+background:#091f40;
+border-radius:15px;
+border:2px solid #0099ff;
+
+}
+
+.status span{
+
+color:#00ff55;
+
+}
+
+footer{
+
+margin-top:70px;
+padding:25px;
+background:#041326;
+text-align:center;
+font-size:18px;
+
+}
+[8/6/2026 12:49 PM] Alaa Abdallah: // رسالة عند فتح الصفحة
+window.onload = function () {
+
+    document.querySelector(".status span").innerHTML = "Ready...";
+
+}
+
+// تأثير عند الضغط على أي زر
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button=>{
+
+button.addEventListener("mouseenter",()=>{
+
+button.style.boxShadow="0 0 30px #00aaff";
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.boxShadow="none";
+
+});
+
+button.addEventListener("click",()=>{
+
+document.querySelector(".status span").innerHTML="Loading...";
+
+setTimeout(function(){
+
+document.querySelector(".status span").innerHTML="Completed";
+
+},1500);
+
+});
+
+});
+
+// ساعة أعلى الصفحة
+
+function updateClock(){
+
+const now=new Date();
+
+let h=now.getHours().toString().padStart(2,'0');
+let m=now.getMinutes().toString().padStart(2,'0');
+let s=now.getSeconds().toString().padStart(2,'0');
+
+let clock=document.getElementById("clock");
+
+if(clock){
+
+clock.innerHTML=h+":"+m+":"+s;
+0 
+
+}
+
+}
+
+setInterval(updateClock,1000);
